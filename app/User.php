@@ -1,4 +1,4 @@
-<?php namespace biblioteca;
+<?php namespace App;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -31,4 +31,54 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+
+
+	public function fullnamePer()
+	{
+		return $this->name.' 	'.$this->tipo;
+	}
+	public function perfil()
+	{
+		return $this->hasOne('App\perfil_persona');
+	}
+
+	public function setPasswordAttribute($value)
+	{
+		if(! empty($value))
+		{
+		$this->attributes['password']=bcrypt($value);
+		}	
+	}
+
+	public function scopeName($query,$name)
+	{
+		//dd("scope".$name);
+		if (trim($name) != "")
+		{
+		$query->where(\DB::raw("CONCAT(name)"),"LIKE","%$name%");	
+		}
+			//hacer busquedas con apellido
+			//$query->where(\DB::raw("CONCAT('firs_name,' ',last_name)"),$name);
+		
+	}
+
+	public function scopeTipo($query, $tipo)
+
+		{
+			$tipos=config('options.tipo');
+
+
+			if($tipo != "" && isset($tipos[$tipo]))
+				{
+					$query->where('tipo',$tipo);
+				}
+		}
+
+	public static function filter($name,$tipo)
+		{
+			return User::name($name)
+				->tipo($tipo)
+				->orderBy('name','ASC')
+				->paginate();
+		}
 }

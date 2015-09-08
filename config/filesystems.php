@@ -16,7 +16,7 @@ return [
 	*/
 
 	'default' => 'local',
-
+'root' => public_path().'/storage',
 	/*
 	|--------------------------------------------------------------------------
 	| Default Cloud Filesystem Disk

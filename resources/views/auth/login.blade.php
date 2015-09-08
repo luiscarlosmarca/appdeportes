@@ -1,61 +1,68 @@
-@extends('app')
 
-@section('content')
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">Login</div>
-				<div class="panel-body">
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
+<!DOCTYPE html>
+<html lang="en" class="no-js">
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <head>
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
-							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
-							</div>
-						</div>
+        <meta charset="utf-8">
+        <title>Inicio de sección | Yo Juego</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
-							</div>
-						</div>
+        <!-- CSS -->
+        
+        {!!Html::style('css/reset.css')!!}
+          {!!Html::style('css/supersized.css')!!}
+            {!!Html::style('css/style.css')!!}
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
+        
 
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="remember"> Remember Me
-									</label>
-								</div>
-							</div>
-						</div>
+         
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
 
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary">Login</button>
+    </head>
 
-								<a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-@endsection
+    <body>
+@if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> Por favor corrige los errores<br><br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+        <div class="page-container">
+            <h1>Inicio de sección | Yo Juego</h1>
+    <form method="POST" action="{{ url('/auth/login') }}">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+          
+
+                <input type="text" name="email" class="username" placeholder="Digite su email">
+                <input type="password" name="password" class="password" placeholder="ingrese la contraseeña">
+                <button type="submit">Entrar</button>
+                <div class="error"><span>+</span></div>
+            </form>
+            
+        </div>
+
+
+
+
+
+        <!-- Javascript -->
+        <script src="js/jquery-1.8.2.min.js"></script>
+        <script src="js/supersized.3.2.7.min.js"></script>
+        <script src="js/supersized-init.js"></script>
+        <script src="js/scripts.js"></script>
+
+    </body>
+
+</html>
+

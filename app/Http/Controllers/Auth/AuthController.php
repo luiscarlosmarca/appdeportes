@@ -1,6 +1,6 @@
-<?php namespace biblioteca\Http\Controllers\Auth;
+<?php namespace App\Http\Controllers\Auth;
 
-use biblioteca\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -34,5 +34,11 @@ class AuthController extends Controller {
 
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
+
+	protected function getFailedLoginMessage()
+	{
+		return trans('passwords.invalid_credentials');
+	}
+ 
 
 }

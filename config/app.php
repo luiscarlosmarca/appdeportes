@@ -52,7 +52,7 @@ return [
 	|
 	*/
 
-	'locale' => 'en',
+	'locale' => 'es',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -137,13 +137,22 @@ return [
 		'Illuminate\View\ViewServiceProvider',
 
 		/*
+		 * Service vendor Providers...
+		 */
+
+		'Collective\Html\HtmlServiceProvider',
+
+		/*
 		 * Application Service Providers...
 		 */
-		'biblioteca\Providers\AppServiceProvider',
-		'biblioteca\Providers\BusServiceProvider',
-		'biblioteca\Providers\ConfigServiceProvider',
-		'biblioteca\Providers\EventServiceProvider',
-		'biblioteca\Providers\RouteServiceProvider',
+
+		'App\Providers\AppServiceProvider',
+		'App\Providers\BusServiceProvider',
+		'App\Providers\ConfigServiceProvider',
+		'App\Providers\EventServiceProvider',
+		'App\Providers\RouteServiceProvider',
+		
+	
 
 	],
 
@@ -193,6 +202,10 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
 
+
+		 'Form' => 'Collective\Html\FormFacade',
+		 'Html' => 'Collective\Html\HtmlFacade',
+	
 	],
 
 ];
