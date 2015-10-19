@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Aplicacion en Desarrollo</title>
+		<title>Yo Juego | Aplicacion en Desarrollo</title>
 		
 		<link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
 
@@ -42,7 +42,7 @@
 			<div class="content">
 				<div class="title">
 					<a href="{{ url('/home') }}">
-						App Deportes1.1 | Yo Juego</div>
+						Aplicacion web | Yo Juego</div>
 					</a>
 				<div class="quote">{{ Inspiring::quote() }}</div>
 			</div>
