@@ -41,28 +41,28 @@ class CanchasController extends Controller {
 	public function store(CreateCanchaRequest $request)
 	{
 
- if(Input::hasFile('file'))
-      {
+	 		if(Input::hasFile('file'))
+	{
 
-      	 $file = Input::file('file');
-      	 $file->move('upload',$file->getClientOriginalName());
-      	// echo '<img src="/upload/'.$file->getClientOriginalName().'"/>';
- $imagen='img src="/upload/'.$file->getClientOriginalName().'"';
-//dd($imagen);
-       //obtenemos el nombre del archivo
-   
+	      	 $file = Input::file('file');
+	      	 $file->move('upload',$file->getClientOriginalName());
+	      	// echo '<img src="/upload/'.$file->getClientOriginalName().'"/>';
+	 		$imagen='img src="/upload/'.$file->getClientOriginalName().'"';
+			//dd($imagen);
+	       //obtenemos el nombre del archivo
+	   
  
-       //indicamos que queremos guardar un nuevo archivo en el disco local
-      //\Storage::disk('local')->put($file,  \File::get($file));
- 	 //echo '<img src="/upload/'.$file->getClientOriginalName().'"/>';
-      $cancha = new Cancha($request->all());
-      $cancha->imagen=$file->getClientOriginalName();
-      $cancha->save();
+	       //indicamos que queremos guardar un nuevo archivo en el disco local
+	      //\Storage::disk('local')->put($file,  \File::get($file));
+	 	 //echo '<img src="/upload/'.$file->getClientOriginalName().'"/>';
+	      $cancha = new Cancha($request->all());
+	      $cancha->imagen=$file->getClientOriginalName();
+	      $cancha->save();
    
   
-		 Session::flash('message',$cancha->nombre.' Fue creado');
+		 	Session::flash('message',$cancha->nombre.' Fue creado');
 		
-		return redirect()->route('admin.escenarios_deportivos.index');
+			return redirect()->route('admin.escenarios_deportivos.index');
 	}
  
        //obtenemos el nombre del archivo

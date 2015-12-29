@@ -9,7 +9,7 @@ class AdminTableSeeder extends Seeder {
 	{
 		\DB::table('users')->insert(array(
 			'name'=>'luiscarlos',
-			'email'=>'luisarlosmarca@gmail.com',
+			'email'=>'luiscarlosmarca@gmail.com',
 			'password'=>\Hash::make('secret'),
 			'tipo'=> 'admin'   
 			));

@@ -95,9 +95,7 @@ g   -->			                <li><a href="{{ url('/admin/equipos') }}">Listado de e
 			              </ul>
             		</li>
 
-					<li><a href="{{ url('/') }}">Fechas</a></li>
-					<li><a href="{{ url('/') }}">Resultados</a></li>
-					<li><a href="{{ url('/') }}">Ajustes</a></li>
+					
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">

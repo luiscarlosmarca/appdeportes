@@ -31,8 +31,7 @@ class CreateJugadoresTable extends Migration {
 			$table->boolean('activo',true);
 			$table->boolean('sancion',false);
 			$table->mediumText	('observaciones')->nullable();
-			$table->string	('nombre_creacion');
-			$table->string	('nombre_edicion');
+			
 			$table->timestamps();
 		});
 	}
